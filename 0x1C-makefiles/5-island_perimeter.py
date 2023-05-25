@@ -3,6 +3,7 @@
 perimeter
 """
 
+
 def island_perimeter(grid):
     """Calculates the island's perimeter
 
@@ -25,4 +26,3 @@ def island_perimeter(grid):
                     if lst > 0 and grid[lst - 1][idx] == 1:
                         perimeter -= 2
     return perimeter
-                    
