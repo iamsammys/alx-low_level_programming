@@ -1,33 +1,30 @@
 #!/usr/bin/python3
-
-"""Created by:
-    Samuel Ezeh
-    On 9/11/22
+"""Module to implement the calculation of an island's
+perimeter
 """
 
-
 def island_perimeter(grid):
-    """A function that returns the perimeter of the island described in grid
+    """Calculates the island's perimeter
 
     Args:
-        grid (int): A list of list of integers
-        - 0 represents a water zone
-        - 1 represents a land zone
+        grid (list): a list of integers
 
     Returns:
-        The perimeter of the island
+        the perimeter of the island
     """
-    perimeter = 0
-    row = len(grid)
-    column = len(grid[0])
-
-    if grid is not None and row > 0 and column > 0:
-        for x in range(0, row):
-            for y in range(0, column):
-                if grid[x][y] >= 1:
+    if grid and len(grid) > 0:
+        perimeter = 0
+        i = 0
+        while i < len(grid):
+            j = 0
+            while j < len(grid[i]):
+                if grid[i][j] == 1:
                     perimeter += 4
-                    if y != 0 and grid[x][y - 1] >= 1:
+                    if grid[i][j-1] and grid[i][j-1] == 1:
                         perimeter -= 2
-                    if x != 0 and grid[x - 1][y] >= 1:
+                    if grid[i-1][j] and grid[i][j] == 1:
                         perimeter -= 2
+                j += 1
+            i += 1
     return perimeter
+                    
