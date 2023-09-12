@@ -5,7 +5,7 @@
  * @size: size of the array of integers
  * @value: Value to search for
  *
- * return: index of the value in the array
+ * Return: index of the value in the array
  */
 
 int binary_search(int *array, size_t size, int value)
@@ -16,28 +16,48 @@ int binary_search(int *array, size_t size, int value)
 	end = size - 1;
 
 	if (!array || !value)
-		return -1;
+		return (-1);
 
-	return recur_func(array, value, start, end);
+	return (recur_func(array, value, start, end));
 }
+
+/**
+ * recur_func - Implements the recursive function
+ * @value: The value to search
+ * @array: Pointer to the array of integers
+ * @start: The first index of the array
+ * @end: The last index of the array
+ *
+ * Return: Index of value in array  on success
+ */
 
 int recur_func(int *array, int value, size_t start, size_t end)
 {
-	size_t mid;
+	size_t mid, loop;
 	int index = -1;
 
+	loop = start;
+
+	printf("Searching in array: ");
+	while (loop < end)
+	{
+		printf("%d, ", array[loop]);
+		loop++;
+	}
+	printf("%d\n", array[loop]);
+
 	if (start >= end)
-		return index;
-	
+		(return index);
+
 	mid = (start + end) / 2;
 
 	if (array[mid] == value)
 	{
 		index = mid;
-		return index;
+		return (index);
 	}
 	else if (value < array[mid])
-		return recur_func(array, value, start, mid - 1);
+		return (recur_func(array, value, start, mid - 1));
 	else if (value > array[mid])
-		return recur_func(array, value, mid + 1, end);
+		return (recur_func(array, value, mid + 1, end));
 }
