@@ -47,7 +47,7 @@ int recur_func(int *array, int value, size_t start, size_t end)
 	printf("%d\n", array[loop]);
 
 	if (start >= end)
-		(return index);
+		return (index);
 
 	mid = (start + end) / 2;
 
